@@ -11,6 +11,8 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
+import static java.lang.System.exit;
+
 public class Game {
     private final int width;
     private final int height;
@@ -56,7 +58,7 @@ public class Game {
             if (sleepTime > 0) try {
                 Thread.sleep(sleepTime);
             } catch (InterruptedException e) {
-
+                System.out.println("GAME-ERROR");
             }
         }
 

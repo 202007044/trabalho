@@ -46,7 +46,7 @@ public class MapController extends GameController {
         Iterator<Monster> it = monsters.iterator();
         while (it.hasNext()) {
             Monster monster = it.next();
-            if(monster.getPosition().equals(castle.getPosition())&&monster.isAlive()){
+            if(monster.getPosition().equals(castle.getPosition())){
                 castle.monsterDamage(monster);
                 it.remove();
             }
@@ -68,9 +68,9 @@ public class MapController extends GameController {
                         Monster monster = it.next();
                         if (tower.getBlast().getPosition().equals(monster.getPosition())) {
                             tower.setBlast(null);
-                            monster.setHealth(monster.getHealth() - tower.getDamage());
+                            monster.hitHealth(tower.getDamage());
                             if (monster.getHealth() <= 0) {
-                                castle.setCoins(castle.getCoins()+monster.getCoins());
+                                castle.addCoins(monster.getCoins());
                                 it.remove();
                             }
                             break;

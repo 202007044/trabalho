@@ -53,7 +53,7 @@ public class TowerController extends GameController{
     public Position chooseMonster(Tower tower, List<Monster> monsters) {
         for(Monster monster : monsters) {
             double dist = Math.sqrt(Math.pow(tower.getPosition().getX()-monster.getPosition().getX(),2)+Math.pow(tower.getPosition().getY()-monster.getPosition().getY(),2));
-            if(dist<= tower.getRange()&&monster.isAlive()){
+            if(dist<= tower.getRange()){
                 return monster.getPosition();
             }
 

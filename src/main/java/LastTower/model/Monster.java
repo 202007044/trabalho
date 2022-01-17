@@ -26,7 +26,7 @@ public class Monster extends Element{
         else if(type==2){
             this.damage =2;
             this.health = 2;
-            this.coins=1;
+            this.coins=2;
             this.speed=1;
             this.apperance="b";
             this.setColor("#450000");
@@ -34,7 +34,7 @@ public class Monster extends Element{
         else if(type==3){
             this.damage =3;
             this.health = 3;
-            this.coins=1;
+            this.coins=3;
             this.speed=1;
             this.apperance="c";
             this.setColor("#301637");
@@ -42,14 +42,6 @@ public class Monster extends Element{
 
     }
 
-
-    public boolean isAlive() {
-        return alive;
-    }
-
-    public void setAlive(boolean alive) {
-        this.alive = alive;
-    }
 
     public int getType() {
         return type;
@@ -85,6 +77,10 @@ public class Monster extends Element{
 
     public int getCoins() {
         return coins;
+    }
+
+    public void hitHealth(int damage){
+        this.health-=damage;
     }
 
     public int getSpeed() {
