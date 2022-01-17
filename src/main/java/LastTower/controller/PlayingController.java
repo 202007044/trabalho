@@ -96,12 +96,23 @@ public class PlayingController extends GameController implements KeyBoardListene
         }
         if(!buttonclicked && !getModel().getBtowers().isEmpty()){
             if(!getModel().getPath().contains(clickedPos) && clickedPos.getX()<27 && clickedPos.getY()>1&& !getModel().getTowersposition().contains(clickedPos)){
-            Tower tower = getModel().getlastBtowers();
-            getModel().getBtowers().remove(tower);
-            tower.setPosition(clickedPos);
-            getModel().addTower(tower);}
+                Tower tower = getModel().getlastBtowers();
+                getModel().getBtowers().remove(tower);
+                tower.setPosition(clickedPos);
+                getModel().addTower(tower);
+            }
+        }
+        else if(!getModel().getPath().contains(clickedPos) && clickedPos.getX()<27 && clickedPos.getY()>1&& getModel().getTowersposition().contains(clickedPos)){
+            for(Tower tower : getModel().getTowers()){
+                if(tower.getPosition().equals(clickedPos)){
+                    getModel().getCastle().addCoins(tower.getPrice()/2);
+                    getModel().getTowers().remove(tower);
+                    break;
+                }
+            }
         }
     }
+
 
     @Override
     public void move(Position position) {

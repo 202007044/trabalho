@@ -53,7 +53,9 @@ public interface GUI {
     void drawMonster(Position position, String color,String apperance);
 
     void drawTitle(Position position, String text, String color, String colorText);
-    void drawShop(Position position, String color);
     void drawHUD(int Health,int Coins);
+
+    void setbackgroundColor(String color);
+
 
 }

@@ -12,7 +12,7 @@ import LastTower.viewer.state.StateViewer;
 
 import java.io.IOException;
 
-public class PauseController implements KeyBoardListener, MouseListener {
+public class PauseController implements MouseListener {
     private final GameState gameState;
     private final StateViewer pauseViewer;
 
@@ -27,48 +27,6 @@ public class PauseController implements KeyBoardListener, MouseListener {
     }
 
     @Override
-    public void keyPressed(GUI.ACTION action) {
-        if(action == GUI.ACTION.QUIT){
-            gameState.changeState(null);
-        }
-        else if(action == GUI.ACTION.UP){
-            int index=0;
-            for(Button button: gameState.getButtons()) {
-                if(button.isHighlighted()){
-                    index = gameState.getButtons().indexOf(button);
-                    button.toneDown();
-                    continue;
-                }
-            }
-            index-=1;
-            if(index<0){index=2;}
-            gameState.getButtons().get(index).highlight();
-
-        }
-        else if(action == GUI.ACTION.DOWN){
-            int index=0;
-            for(Button button: gameState.getButtons()) {
-                if(button.isHighlighted()){
-                    index = gameState.getButtons().indexOf(button);
-                    button.toneDown();
-                    continue;
-                }
-            }
-            index+=1;
-            if(index>2){index=0;}
-            gameState.getButtons().get(index).highlight();
-
-        }
-        else if(action == GUI.ACTION.RIGHT){
-            for(Button button: gameState.getButtons()) {
-                if(button.isHighlighted()){
-                    button.getCommand().execute();
-                    break;
-                }
-            }
-        }
-    }
-    @Override
     public void click(Position position) {
         Position clickedPos = getRealPosition(position,gameState.getGame().getWidth(), gameState.getGame().getHeight());
         for (Button button:gameState.getButtons()){
@@ -78,6 +36,8 @@ public class PauseController implements KeyBoardListener, MouseListener {
             }
         }
     }
+
+
 
     @Override
     public void move(Position position) {

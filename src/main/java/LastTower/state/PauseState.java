@@ -26,7 +26,6 @@ public class PauseState extends GameState {
 
     @Override
     public void start() {
-        game.getKeyBoardObserver().setListener(pauseController);
         game.getMouseObserver().setListener(pauseController);
     }
 

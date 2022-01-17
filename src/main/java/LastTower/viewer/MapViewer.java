@@ -26,12 +26,13 @@ public class MapViewer {
     public MapViewer(GUI gui, Map map) {
         this.gui = gui;
         this.map = map;
+        gui.setbackgroundColor(map.getColor());
         textGraphics= gui.createTextGraphics();
     }
 
     public void draw() throws IOException {
         gui.clear();
-        gui.drawBackground(textGraphics,"#008013");
+        gui.drawBackground(textGraphics,"#"+map.getColor());
         for(Position pos : map.getPath()){
             gui.drawPath(pos);
         }
@@ -43,7 +44,7 @@ public class MapViewer {
         drawElements(this.map.getTowers(), new TowerViewer());
         drawElements(this.map.getMonsters(), new MonsterViewer());
         drawElement(this.map.getCastle(), new CastleViewer());
-        gui.drawTitle(new Position(15,25),"ROUND: "+ (map.getRound()+1),"#008013","#FFFFFF");
+        gui.drawTitle(new Position(15,25),"ROUND: "+ (map.getRound()+1),"#" + map.getColor(),"#FFFFFF");
         gui.refresh();
     }
 

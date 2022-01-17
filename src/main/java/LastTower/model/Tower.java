@@ -15,16 +15,19 @@ public class Tower extends  Element{
         if(type==1){
             this.damage =1;
             this.range = 2;
+            this.price = 5;
             this.setColor("#FF0000");
         }
         else if(type==2){
             this.damage =1;
             this.range = 3;
+            this.price = 7;
             this.setColor("#00FF00");
         }
         else if(type==3){
             this.damage =2;
             this.range = 4;
+            this.price = 10;
             this.setColor("#0000FF");
         }
         else{

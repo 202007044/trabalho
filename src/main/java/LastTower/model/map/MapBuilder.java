@@ -17,6 +17,7 @@ public abstract class MapBuilder {
         map.setPath(createPath());
         map.setMonsters(createMonsters());
         map.setTowers(new ArrayList<Tower>());
+        map.setColor(createColor());
         return map;
     }
 
@@ -26,7 +27,7 @@ public abstract class MapBuilder {
 
     protected abstract List<List<Monster>> createMonsters();
 
-    protected abstract List<Tower> createTower();
+    protected abstract String createColor();
 }
 
 

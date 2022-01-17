@@ -87,10 +87,6 @@ public class Monster extends Element{
         return coins;
     }
 
-    public void setCoins(int coins) {
-        this.coins = coins;
-    }
-
     public int getSpeed() {
         return speed;
     }

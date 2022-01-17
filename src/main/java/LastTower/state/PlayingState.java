@@ -17,20 +17,18 @@ import java.util.Arrays;
 
 public class PlayingState extends GameState {
     private int level;
-    private int round;
     private final int maxLevel;
     private PlayingController playingController;
     private Map map;
 
     public PlayingState(Game game, GUI gui, int level) throws IOException {
         super(game, Arrays.asList(
-                new Button(new Position(30,3),new Position(30,4), " gh "," ij ",4,4,new BuyTower(5,1),Arrays.asList("#FF0000", "#FFFF00")),
-                new Button(new Position(30,10),new Position(30,11), " gh ", " ij ",4,4,new BuyTower(7,2),Arrays.asList("#00FF00", "#FFFF00")),
-                new Button(new Position(30,17),new Position(30,18), " gh "," ij ",4,4,new BuyTower(10,3),Arrays.asList("#0000FF", "#FFFF00"))
+                new Button(new Position(30,3),new BuyTower(5,1),Arrays.asList("#FF0000", "#FFFF00")),
+                new Button(new Position(30,10),new BuyTower(7,2),Arrays.asList("#00FF00", "#FFFF00")),
+                new Button(new Position(30,17),new BuyTower(10,3),Arrays.asList("#0000FF", "#FFFF00"))
 
 
         ));
-        this.round = 1;
         this.level = level;
         this.maxLevel = 2;
         this.map = new MapLoader(level).createMap(game.getWidth(), game.getHeight());

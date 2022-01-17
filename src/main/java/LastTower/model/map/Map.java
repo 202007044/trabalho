@@ -6,6 +6,7 @@ import LastTower.model.*;
 import java.util.*;
 
 public class Map {
+    private String color;
     private int round = 0;
     private List<List<Monster>> monsters;
     private List<Tower> towers;
@@ -79,6 +80,13 @@ public class Map {
         this.round = round;
     }
 
+    public void setColor(String color) {
+        this.color = color;
+    }
+    public String getColor() {
+        return color;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -91,4 +99,7 @@ public class Map {
     public int hashCode() {
         return Objects.hash(monsters, towers, path);
     }
+
+
+
 }

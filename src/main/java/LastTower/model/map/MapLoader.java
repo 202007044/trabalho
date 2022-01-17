@@ -15,15 +15,16 @@ public class MapLoader extends MapBuilder {
     List<Position> path;
     List<List<Monster>> monsters;
     List<Tower> towers;
+    String color;
 
     Castle castle;
     public MapLoader(int level) throws IOException {
         path =new ArrayList<Position>();
         monsters = new ArrayList<>();
-        towers = new ArrayList<Tower>();
 
         File file = new File("src\\main\\resources\\maps\\map"+String.valueOf(level)+".txt");
         Scanner myReader = new Scanner(file);
+        color = myReader.nextLine();
         int pathnumber = myReader.nextInt();
         while (pathnumber!=0) {
             pathnumber--;
@@ -61,8 +62,8 @@ public class MapLoader extends MapBuilder {
     }
 
     @Override
-    protected List<Tower> createTower() {
-        return towers;
+    protected String createColor() {
+        return color;
     }
 }
 

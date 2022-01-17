@@ -19,6 +19,9 @@ public class LanternaGUI implements GUI {
     private final TerminalScreen screen;
     private final int width;
     private final int height;
+    private String backgroundColor;
+
+
 
     public LanternaGUI(int width, int height) throws IOException, FontFormatException {
         AWTTerminalFontConfiguration fontConfig = loadFont();
@@ -70,8 +73,8 @@ public class LanternaGUI implements GUI {
 
     @Override
     public void drawCastle(Position position, String color) {
-        for(int i = -2;i<23;i++){
-            drawText( screen.newTextGraphics(), new Position(position.getX()+i, position.getY()+1), "u", color);
+        for(int i = 0;i<25;i++){
+            drawText( screen.newTextGraphics(), new Position(0+i, position.getY()+1), "u", color);
         }
         drawText( screen.newTextGraphics(), new Position(position.getX()-1, position.getY()+1), "t", color);
         drawText( screen.newTextGraphics(), new Position(position.getX()+1, position.getY()+1), "v", color);
@@ -102,7 +105,7 @@ public class LanternaGUI implements GUI {
             textGraphics.setBackgroundColor(TextColor.Factory.fromString("#FFFFFF"));
         }
         else {
-            textGraphics.setBackgroundColor(TextColor.Factory.fromString("#008013"));
+            textGraphics.setBackgroundColor(TextColor.Factory.fromString("#"+backgroundColor));
         }
         textGraphics.setForegroundColor(TextColor.Factory.fromString(elementColor));
             textGraphics.enableModifiers(SGR.BOLD);
@@ -124,10 +127,6 @@ public class LanternaGUI implements GUI {
     public void drawMonster(Position position, String color,String apperance) {
         drawText( screen.newTextGraphics(), position,apperance , color);
 
-    }
-    @Override
-    public void drawShop(Position position, String color) {
-        drawText( screen.newTextGraphics(), position, "S", color);
     }
 
     @Override
@@ -185,7 +184,7 @@ public class LanternaGUI implements GUI {
 
     private void drawText(TextGraphics textGraphics, Position position, String text, String color) {
         if(text=="a"||text=="b"||text=="c"||text=="d"){textGraphics.setBackgroundColor(TextColor.Factory.fromString("#FFFFFF"));}
-        if(text=="k"||text=="v"||text=="t"||text=="u"||text=="q"||text=="s"){textGraphics.setBackgroundColor(TextColor.Factory.fromString("#008013"));}
+        if(text=="k"||text=="v"||text=="t"||text=="u"||text=="q"||text=="s"){textGraphics.setBackgroundColor(TextColor.Factory.fromString("#"+backgroundColor));}
         textGraphics.setForegroundColor(TextColor.Factory.fromString(color));
         textGraphics.enableModifiers(SGR.BOLD);
         textGraphics.putString(position.getX(),position.getY(),text);
@@ -193,7 +192,7 @@ public class LanternaGUI implements GUI {
     @Override
     public void drawHUD(int health, int coins){
         TextGraphics textGraphics = createTextGraphics();
-        textGraphics.setBackgroundColor(TextColor.Factory.fromString("#008013"));
+        textGraphics.setBackgroundColor(TextColor.Factory.fromString("#"+backgroundColor));
         drawText(textGraphics, new Position(0,this.height-1), String.valueOf(health),"#FF0000");
         drawText(textGraphics, new Position(10,this.height-1), "$"+String.valueOf(coins),"#FFFF00");
         textGraphics.setBackgroundColor(TextColor.Factory.fromString("#caa472"));
@@ -203,6 +202,10 @@ public class LanternaGUI implements GUI {
         drawText(textGraphics, new Position(27,22),"A:2 R:4 $10","#EFC88B");
     }
 
+    @Override
+    public void setbackgroundColor(String color){
+        this.backgroundColor = color;
+    }
 
 
     @Override

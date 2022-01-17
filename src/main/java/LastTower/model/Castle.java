@@ -20,6 +20,7 @@ public class Castle extends Element{
     public int getCoins() {
         return coins;
     }
+    public void addCoins(int coins){this.coins+=coins;}
 
     public void setCoins(int coins) {
         this.coins = coins;

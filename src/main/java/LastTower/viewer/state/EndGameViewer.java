@@ -19,13 +19,17 @@ public class EndGameViewer extends StateViewer {
     @Override
     public void draw() throws IOException{
         try {
-            gui.drawRectangle(gui.createTextGraphics(), "#000000", 16, 5, new Position(13, 10));
-            if (won){gui.drawTitle(new Position(15, 12), "m YOU WON m", "#000000", "#FFFFFF");}
-            else {gui.drawTitle(new Position(15, 12), "l YOU LOST l", "#000000", "#FFFFFF");}
+
+            if (won){
+                gui.drawRectangle(gui.createTextGraphics(), "#14213d", 15, 5, new Position(13, 10));
+                gui.drawTitle(new Position(15, 12), "m YOU WON m", "#14213d", "#D4AF37");}
+            else {
+                gui.drawRectangle(gui.createTextGraphics(), "#14213d", 16, 5, new Position(13, 10));
+                gui.drawTitle(new Position(15, 12), "l YOU LOST l", "#14213d", "#FFFFFF");}
             gui.refresh();
             TimeUnit.MILLISECONDS.sleep(3000);
         }catch (Exception e){
-            gui.drawTitle(new Position(7, 12), "YOU LOST o", "#000000", "#FFFFFF");
+            gui.drawTitle(new Position(15, 12), "ERROR", "#000000", "#FF0000");
         }
     }
 }

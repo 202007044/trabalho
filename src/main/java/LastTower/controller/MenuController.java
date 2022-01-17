@@ -38,6 +38,7 @@ public class MenuController implements KeyBoardListener,MouseListener{
         }
     }
 
+
     @Override
     public void move(Position position) {
         Position currentPosition = getRealPosition(position,gameState.getGame().getWidth(), gameState.getGame().getHeight());
