@@ -2,6 +2,8 @@ package LastTower.model;
 
 import com.googlecode.lanterna.graphics.TextGraphics;
 
+import java.util.Objects;
+
 public class Castle extends Element{
     private int health = 10;
     private int coins = 10;
@@ -32,4 +34,5 @@ public class Castle extends Element{
     public void monsterDamage(Monster monster){
         this.setHealth(getHealth()-monster.getDamage());
     }
+
 }

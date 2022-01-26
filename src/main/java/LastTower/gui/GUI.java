@@ -14,7 +14,6 @@ public interface GUI {
         DOWN,
         LEFT,
         RIGHT,
-        SHOP,
         QUIT
     }
 

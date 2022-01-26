@@ -3,6 +3,7 @@ package LastTower.controller;
 
 
 import LastTower.gui.GUI;
+import LastTower.gui.KeyBoardObserver;
 import LastTower.model.Button;
 import LastTower.model.Position;
 import LastTower.state.GameState;
@@ -14,7 +15,7 @@ import LastTower.viewer.state.StateViewer;
 
 import java.io.IOException;
 
-public class InstructionsController implements KeyBoardListener, MouseListener {
+public class InstructionsController implements KeyBoardListener{
     private final GameState gameState;
     private final GUI gui;
     private final StateViewer instructionsViewer;
@@ -39,31 +40,6 @@ public class InstructionsController implements KeyBoardListener, MouseListener {
             catch (IOException e) {
                 e.printStackTrace();
             }
-        }
-    }
-
-    @Override
-    public void click(Position position) {
-        Position clickedPos = getRealPosition(position,gameState.getGame().getWidth(), gameState.getGame().getHeight());
-        for (Button button:gameState.getButtons()){
-            Position buttonPos = button.getPosition();
-            if (buttonPosition(clickedPos, buttonPos, button.getWidth(), button.getHeight())){
-                button.getCommand().execute();
-            }
-        }
-    }
-
-    @Override
-    public void move(Position position) {
-        Position currentPosition = getRealPosition(position,gameState.getGame().getWidth(), gameState.getGame().getHeight());
-        for(Button button: gameState.getButtons()) {
-            Position buttonPos = button.getPosition();
-            if(buttonPosition(currentPosition, buttonPos, button.getWidth(), button.getHeight())) {
-                button.highlight();
-                continue;
-            }
-            if(button.isHighlighted())
-                button.toneDown();
         }
     }
 }

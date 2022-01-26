@@ -65,7 +65,7 @@ public class Button extends Element {
         this.color = this.colors.get(0);
     }
 
-
+    public void setCommand(Command command){this.command=command;}
 
     public String getBgColor() {
         return bgColor;

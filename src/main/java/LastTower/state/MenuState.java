@@ -28,7 +28,6 @@ public class MenuState extends GameState {
 
     @Override
     public void start() {
-        game.getKeyBoardObserver().setListener(menuController);
         game.getMouseObserver().setListener(menuController);
     }
 

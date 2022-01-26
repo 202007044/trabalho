@@ -51,22 +51,11 @@ public class PlayingState extends GameState {
         if(++level > maxLevel) return false;
         this.map = new MapLoader(level).createMap(game.getWidth(), game.getHeight());
         this.playingController.setupModel(map);
-        resetValues();
         return true;
     }
     public boolean upRound() throws IOException {
         if(getMap().getRound()+1 > map.getallMonsters().size()-1) return false;
         return true;
-    }
-
-    private void resetValues() {
-        resetButtons();
-    }
-
-    private void resetButtons() {
-        for (Button button : getButtons()){
-            button.deactivate();
-        }
     }
 
     public int getLevel() {

@@ -39,7 +39,6 @@ public class Monster extends Element{
             this.apperance="c";
             this.setColor("#301637");
         }
-
     }
 
 

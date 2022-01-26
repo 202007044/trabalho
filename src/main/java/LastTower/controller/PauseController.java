@@ -5,7 +5,6 @@ import LastTower.gui.GUI;
 import LastTower.model.Button;
 import LastTower.model.Position;
 import LastTower.state.GameState;
-import LastTower.state.listener.KeyBoardListener;
 import LastTower.state.listener.MouseListener;
 import LastTower.viewer.state.PauseViewer;
 import LastTower.viewer.state.StateViewer;

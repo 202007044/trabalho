@@ -40,7 +40,7 @@ public class MapController extends GameController {
     }
 
 
-    private void monsterDamage(){
+    public void monsterDamage(){
         List<Monster> monsters = getModel().getMonsters();
         Castle castle = getModel().getCastle();
         Iterator<Monster> it = monsters.iterator();
@@ -52,7 +52,7 @@ public class MapController extends GameController {
             }
         }
     }
-    private void towerBlast() {
+    public void towerBlast() {
         if(getModel().getTowers()!=null){
             List<Monster> monsters = getModel().getMonsters();
             List<Tower> towers = getModel().getTowers();

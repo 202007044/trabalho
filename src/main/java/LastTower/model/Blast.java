@@ -5,8 +5,6 @@ import java.util.Objects;
 public class Blast extends Element {
     private double x;
     private double y;
-    private int speed;
-    private int damage;
     private String appearence;
     private double degree;
 
@@ -33,15 +31,6 @@ public class Blast extends Element {
         this.degree = degree;
     }
 
-    public void setSpeed(int speed) {
-        this.speed = speed;
-    }
-
-    public void setDamage(int damage) {
-        this.damage = damage;
-    }
-
-
     public void setX(double x) {
         this.x = x;
     }
@@ -54,14 +43,6 @@ public class Blast extends Element {
         return appearence;
     }
 
-    public void setAppearence(String appearence) {
-        this.appearence = appearence;
-    }
 
-    public void updatePos(){
-        this.x+=Math.cos(degree);
-        this.y+=Math.sin(degree);
-        setPosition(new Position((int)Math.floor(x), (int)Math.floor(y)));
-    }
 
 }

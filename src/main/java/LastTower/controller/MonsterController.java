@@ -34,7 +34,7 @@ public class MonsterController extends GameController{
     }
 
 
-    private void moveMonster(Monster monster) {
+    public void moveMonster(Monster monster) {
             if(getModel().getPath().contains(monster.getPosition())==false){
                 monster.setPosition(new Position(monster.getPosition().getX()+1,monster.getPosition().getY()));
             }

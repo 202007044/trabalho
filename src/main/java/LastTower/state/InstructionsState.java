@@ -24,7 +24,6 @@ public class InstructionsState extends GameState{
     @Override
     public void start() {
         game.getKeyBoardObserver().setListener(instructionsController);
-        game.getMouseObserver().setListener(instructionsController);
     }
 
     @Override

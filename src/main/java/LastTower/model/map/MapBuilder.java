@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class MapBuilder {
-
     public Map createMap(int width, int height) {
         Map map = new Map();
         map.setCastle(createCastle());

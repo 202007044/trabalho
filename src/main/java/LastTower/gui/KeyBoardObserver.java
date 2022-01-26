@@ -28,9 +28,6 @@ public class KeyBoardObserver extends KeyAdapter {
             case KeyEvent.VK_S:
                 listener.keyPressed(GUI.ACTION.DOWN);
                 break;
-            case KeyEvent.VK_P:
-                listener.keyPressed(GUI.ACTION.SHOP);
-                break;
         }
     }
 
